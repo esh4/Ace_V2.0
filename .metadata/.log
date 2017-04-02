@@ -248,3 +248,15 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.equinox.ds 1 0 2017-04-02 12:23:18.759
 !MESSAGE Could not bind a reference of component org.eclipse.fx.ide.css.cssext.ui.internal.DefaultCssExtProvider. The reference is: Reference[name = ICSSExtModelProvider, interface = org.eclipse.fx.ide.css.cssext.ICSSExtModelProvider, policy = dynamic, cardinality = 0..n, target = null, bind = bindCssExtensionModelProvider, unbind = unbindCssExtensionModelProvider]
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2017-04-02 12:37:03.963
+!MESSAGE [edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@5ac3673a, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@2b833ee7, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@315ccea2, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@559b4958, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@14a00e66, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@26e66e13, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@71988db3, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@7ec6cb51, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@6a8129d1, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@7f825464, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@4a42bb32, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@2966d68, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@61ba034a, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@cf64a6d, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@5332ebea]
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2017-04-02 12:37:03.963
+!MESSAGE [edu.wpi.first.wpilib.plugins.core.wizards.Tag@627e21c9, edu.wpi.first.wpilib.plugins.core.wizards.Tag@53efde9f, edu.wpi.first.wpilib.plugins.core.wizards.Tag@6d7453ad, edu.wpi.first.wpilib.plugins.core.wizards.Tag@295d8852, edu.wpi.first.wpilib.plugins.core.wizards.Tag@3abe94d9, edu.wpi.first.wpilib.plugins.core.wizards.Tag@1788be37, edu.wpi.first.wpilib.plugins.core.wizards.Tag@58ae7e50, edu.wpi.first.wpilib.plugins.core.wizards.Tag@1d74720f, edu.wpi.first.wpilib.plugins.core.wizards.Tag@53222524, edu.wpi.first.wpilib.plugins.core.wizards.Tag@1894071, edu.wpi.first.wpilib.plugins.core.wizards.Tag@2afee2ee, edu.wpi.first.wpilib.plugins.core.wizards.Tag@142409b4, edu.wpi.first.wpilib.plugins.core.wizards.Tag@56ed0511, edu.wpi.first.wpilib.plugins.core.wizards.Tag@1d2c5d75, edu.wpi.first.wpilib.plugins.core.wizards.Tag@401835ac]
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-04-02 12:38:04.454
+!MESSAGE Running ant file: C:\Users\Eshel\Documents\robotics\FRC\Java Program\Ace_V2.0\PacGoat\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-04-02 12:38:04.454
+!MESSAGE Targets: simulate, Mode: run

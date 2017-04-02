@@ -19,6 +19,26 @@ public class StrongArm extends Subsystem{
 		gearLift.set(Value.kForward);
 	}
 	
+	public void lowerArm() {
+		gearLift.set(Value.kReverse);
+	}
+	
+	public void openArm() {
+		gearClamp.set(Value.kForward);
+	}
+	
+	public void closeArm() {
+		gearClamp.set(Value.kReverse);
+	}
+	
+	public void ejectGear() {
+		gearEject.set(Value.kForward);
+	}
+	
+	public void retractGear() {
+		gearEject.set(Value.kReverse);
+	}
+	
 	
 
 	@Override
