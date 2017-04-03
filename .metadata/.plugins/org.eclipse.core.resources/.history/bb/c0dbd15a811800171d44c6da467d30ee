@@ -1,0 +1,29 @@
+package org.usfirst.frc.team5990.robot.assists;
+
+package org.usfirst.frc.team5990.robot.assists;
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import edu.wpi.first.wpilibj.PIDOutput;
+
+
+public class DummyPIDOutput implements PIDOutput{
+    double output;
+    
+    public DummyPIDOutput()
+    {
+        output = 0;
+    }
+
+    public void pidWrite(double output) {
+        this.output = output;
+    }
+
+    public double getOutput() {
+        return output;
+    }
+    
+}

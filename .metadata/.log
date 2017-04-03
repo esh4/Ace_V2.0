@@ -260,3 +260,36 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY WPILib_Java_Robot_Development 1 0 2017-04-02 12:38:04.454
 !MESSAGE Targets: simulate, Mode: run
+
+!ENTRY org.eclipse.recommenders.rcp 2 23 2017-04-02 18:02:35.763
+!MESSAGE Failed to parse news feed
+!STACK 0
+java.net.UnknownHostException: www.codetrails.com
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:44)
+	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:102)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:319)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:363)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:219)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:195)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:86)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:108)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:57)
+	at org.apache.http.client.fluent.Executor.execute(Executor.java:206)
+	at org.eclipse.recommenders.internal.rcp.news.CheckForProjectNewsJob.getRSSFeed(CheckForProjectNewsJob.java:138)
+	at org.eclipse.recommenders.internal.rcp.news.CheckForProjectNewsJob.doRun(CheckForProjectNewsJob.java:89)
+	at org.eclipse.recommenders.internal.rcp.news.CheckForProjectNewsJob.run(CheckForProjectNewsJob.java:62)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2017-04-03 17:07:25.861
+!MESSAGE [edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@3b99b296, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@4ac0fd6b, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@4ab6dafa, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@76adadf9, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@56acb8, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@4db0327c, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@31ad503a, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@2a74f193, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@1f72ab09, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@539d5949, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@8eaef80, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@59f6f67, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@f3fa63e, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@3651f181, edu.wpi.first.wpilib.plugins.java.wizards.examples.ExampleJavaProject@69189e24]
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2017-04-03 17:07:25.881
+!MESSAGE [edu.wpi.first.wpilib.plugins.core.wizards.Tag@17022037, edu.wpi.first.wpilib.plugins.core.wizards.Tag@657e6abf, edu.wpi.first.wpilib.plugins.core.wizards.Tag@5c9a5268, edu.wpi.first.wpilib.plugins.core.wizards.Tag@71de1e61, edu.wpi.first.wpilib.plugins.core.wizards.Tag@775b8bf5, edu.wpi.first.wpilib.plugins.core.wizards.Tag@61662c33, edu.wpi.first.wpilib.plugins.core.wizards.Tag@6f612b65, edu.wpi.first.wpilib.plugins.core.wizards.Tag@6ecd0dfe, edu.wpi.first.wpilib.plugins.core.wizards.Tag@45e227f1, edu.wpi.first.wpilib.plugins.core.wizards.Tag@15359cca, edu.wpi.first.wpilib.plugins.core.wizards.Tag@73e9b70a, edu.wpi.first.wpilib.plugins.core.wizards.Tag@754de674, edu.wpi.first.wpilib.plugins.core.wizards.Tag@21c49a83, edu.wpi.first.wpilib.plugins.core.wizards.Tag@182e81bd, edu.wpi.first.wpilib.plugins.core.wizards.Tag@26413455]

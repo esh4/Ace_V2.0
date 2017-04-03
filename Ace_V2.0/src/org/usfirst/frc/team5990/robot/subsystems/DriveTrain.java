@@ -41,7 +41,7 @@ public class DriveTrain extends Subsystem{
 		
 		table = NetworkTable.getTable("Dashboard");
 		
-		/*
+		
 		LiveWindow.addActuator("Drive Train", "Front_Left Motor", (Talon) frontLeft);
 		LiveWindow.addActuator("Drive Train", "Back Left Motor", (Talon) rearLeft);
 		LiveWindow.addActuator("Drive Train", "Front Right Motor", (Talon) frontRight);
@@ -49,7 +49,7 @@ public class DriveTrain extends Subsystem{
 		LiveWindow.addSensor("Drive Train", "Left Encoder", leftEncoder);
 		LiveWindow.addSensor("Drive Train", "Right Encoder", rightEncoder);
 		LiveWindow.addSensor("Drive Train", "Gyro", gyro);		
-		*/
+		
 	}
 	
 	//send useful info to DB:
@@ -73,6 +73,11 @@ public class DriveTrain extends Subsystem{
 	
 	public double getDistance() {
 		return (leftEncoder.getDistance() + rightEncoder.getDistance()) / 2;
+	}
+	
+	public void resetEncoders() {
+		leftEncoder.reset();
+		rightEncoder.reset();
 	}
 	
 	
