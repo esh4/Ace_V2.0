@@ -34,6 +34,7 @@ public class DriveTrain extends Subsystem{
 		rearLeft = new Talon(RobotMap.rearLeftMotor);
 		
 		drive = new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+		drive.setSafetyEnabled(false);
 		
 		leftEncoder = new Encoder(RobotMap.leftEncoderA, RobotMap.leftEncoderB);
 		rightEncoder = new Encoder(RobotMap.rightEncoderA, RobotMap.rightEncoderB);
@@ -57,18 +58,36 @@ public class DriveTrain extends Subsystem{
 		table.putNumber("leftEncoder", leftEncoder.getDistance());
 		table.putNumber("rightEncoder", rightEncoder.getDistance());
 		table.putNumber("gyro angle", this.getHeading());
+		
+		table.putNumber("front right motor", frontRight.get());
+		table.putNumber("rear right motor", rearRight.get());
+		table.putNumber("front left motor", frontLeft.get());
+		table.putNumber("rear left motor", rearLeft.get());
 	}
 	
 	public void drive(double left, double right) {
 		drive.tankDrive(left, right);
 	}
 	
-	public void drive(Joystick joystick) {
+	public void arcadeDrive(Joystick joystick) {
 		drive.arcadeDrive(joystick.getY(), joystick.getX());
 	}
 	
+	public void arcadeDrive(double yVal, double xVal){
+		drive.arcadeDrive(-yVal, -xVal);
+	}
+	
+	
 	public double getHeading() {
 		return gyro.getAngle();
+	}
+	
+	public void gyroCalibrate(){
+		gyro.calibrate();
+	}
+	
+	public void resetGyro(){
+		gyro.reset();
 	}
 	
 	public double getDistance() {
@@ -80,8 +99,7 @@ public class DriveTrain extends Subsystem{
 		rightEncoder.reset();
 	}
 	
-	
-	
+
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub

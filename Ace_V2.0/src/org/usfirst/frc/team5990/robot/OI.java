@@ -1,6 +1,11 @@
 package org.usfirst.frc.team5990.robot;
 
+import org.usfirst.frc.team5990.robot.commands.driveDistance;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 //import org.usfirst.frc.team5990.robot.commands.ExampleCommand;
 
@@ -14,7 +19,13 @@ public class OI {
 	//// joystick.
 	// You create one by telling it which joystick it's on and which button
 	// number it is.
-	// Joystick stick = new Joystick(port);
+	XboxController driveStick = new XboxController(3);
+	Joystick operatorStick = new Joystick(2);
+	
+	public OI(){
+		SmartDashboard.putData("drive", new driveDistance(1000, 0.4));
+	}
+	
 	// Button button = new JoystickButton(stick, buttonNumber);
 
 	// There are a few additional built in buttons you can use. Additionally,

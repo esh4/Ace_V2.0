@@ -19,6 +19,8 @@ public class driveDistance extends Command{
 	public driveDistance(double distance, double power){
 		this.distance = distance;
 		this.power = power;
+		gyroPIDOut = new DummyPIDOutput();
+		gyroPIDSource = new DummyPIDSource();
 		
 		requires(Robot.driveTrain);
 		headingControl = new PIDController(0.5, 0, 0, gyroPIDSource, gyroPIDOut);
@@ -34,6 +36,7 @@ public class driveDistance extends Command{
 	protected void execute() {
 		gyroPIDSource.setValue(Robot.driveTrain.getHeading());
 		Robot.driveTrain.drive(this.power + gyroPIDOut.getOutput(), this.power - gyroPIDOut.getOutput());
+		Robot.driveTrain.log();
 	}
 
 	

@@ -1,9 +1,12 @@
 
 package org.usfirst.frc.team5990.robot;
 
+import org.usfirst.frc.team5990.robot.subsystems.Climber;
 import org.usfirst.frc.team5990.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team5990.robot.subsystems.StrongArm;
 import org.usfirst.frc.team5990.robot.commands.driveDistance;
 
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -26,9 +29,13 @@ public class Robot extends IterativeRobot {
 	//public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static DriveTrain driveTrain;
-
+	public static Climber climber;
+	public static StrongArm strongArm;
+	
+	//public static Compressor compressor;
+ 
 	Command autonomousCommand;
-	SendableChooser<Command> chooser = new SendableChooser<>();
+	//SendableChooser<Command> chooser = new SendableChooser<>();
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -36,11 +43,15 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		oi = new OI();
 		driveTrain = new DriveTrain();
+		oi = new OI();
+		//driveTrain.gyroCalibrate();
+		climber = new Climber();
+		strongArm = new StrongArm();
+		//compressor.start();
 		//chooser.addDefault("Default Auto", new ExampleCommand());
-		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", chooser);
+		//chooser.addObject("My Auto", new MyAutoCommand());
+		//SmartDashboard.putData("Auto mode", chooser);
 	}
 
 	/**
@@ -48,15 +59,7 @@ public class Robot extends IterativeRobot {
 	 * You can use it to reset any subsystem information you want to clear when
 	 * the robot is disabled.
 	 */
-	@Override
-	public void disabledInit() {
 
-	}
-
-	@Override
-	public void disabledPeriodic() {
-		Scheduler.getInstance().run();
-	}
 
 	/**
 	 * This autonomous (along with the chooser code above) shows how to select
@@ -71,7 +74,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
+		autonomousCommand = new driveDistance(1000, 0.3);
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -91,6 +94,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		driveTrain.log();
 	}
 
 	@Override
@@ -109,8 +113,14 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		driveTrain.arcadeDrive(oi.driveStick.getY(), oi.driveStick.getX());
+		driveTrain.log();
 	}
 
+	@Override
+	public void disabledPeriodic() {
+		driveTrain.log();
+	}
 	/**
 	 * This function is called periodically during test mode
 	 */

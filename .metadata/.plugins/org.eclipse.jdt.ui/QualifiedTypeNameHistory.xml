@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.DoubleSolenoid.Value"/>
-<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.command.Command"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.command.Subsystem"/>
 <fullyQualifiedTypeName name="org.usfirst.frc.team5990.robot.subsystems.DriveTrain"/>
-<fullyQualifiedTypeName name="org.usfirst.frc.team5990.robot.assists.DummyPIDOutput"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.PIDSource"/>
-<fullyQualifiedTypeName name="org.usfirst.frc.team5990.robot.assists.DummyPIDSource"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.PIDController"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.command.Command"/>
 <fullyQualifiedTypeName name="org.usfirst.frc.team5990.robot.Robot"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.XboxController"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Joystick"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Compressor"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team5990.robot.subsystems.Climber"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team5990.robot.subsystems.StrongArm"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team5990.robot.assists.DummyPIDOutput"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team5990.robot.assists.DummyPIDSource"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.smartdashboard.SmartDashboard"/>
 <fullyQualifiedTypeName name="org.usfirst.frc.team5990.robot.commands.driveDistance"/>
 </qualifiedTypeNameHistroy>
