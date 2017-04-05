@@ -17,4 +17,6 @@
 <fullyQualifiedTypeName name="org.usfirst.frc.team5990.robot.assists.DummyPIDSource"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.smartdashboard.SmartDashboard"/>
 <fullyQualifiedTypeName name="org.usfirst.frc.team5990.robot.commands.driveDistance"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
 </qualifiedTypeNameHistroy>
