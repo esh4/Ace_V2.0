@@ -1,5 +1,6 @@
 package org.usfirst.frc.team5990.robot;
 
+import org.usfirst.frc.team5990.robot.commands.disableStrongArm;
 import org.usfirst.frc.team5990.robot.commands.driveDistance;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -24,6 +25,7 @@ public class OI {
 	
 	public OI(){
 		SmartDashboard.putData("drive", new driveDistance(1000, 0.4));
+		SmartDashboard.putData("disable strongarm", new disableStrongArm());
 	}
 	
 	// Button button = new JoystickButton(stick, buttonNumber);
