@@ -50,6 +50,10 @@ public class StrongArm extends Subsystem{
 		compressor.stop();
 	}
 	
+	public void enable(){
+		compressor.start();
+	}
+	
 
 	@Override
 	protected void initDefaultCommand() {

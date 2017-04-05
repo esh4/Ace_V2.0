@@ -1,6 +1,8 @@
 package org.usfirst.frc.team5990.robot.subsystems;
 
+import org.usfirst.frc.team5990.robot.OI;
 import org.usfirst.frc.team5990.robot.RobotMap;
+import org.usfirst.frc.team5990.robot.commands.DriveWithXBox;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Encoder;
@@ -27,7 +29,10 @@ public class DriveTrain extends Subsystem{
 	
 	private NetworkTable table;
 	
+	private OI oi;
+	
 	public DriveTrain() {
+		//this.oi = oi;
 		frontRight = new Talon(RobotMap.frontRightMotor);
 		rearRight = new  Talon(RobotMap.rearRightMotor);
 		frontLeft = new Talon(RobotMap.frontLeftMotor);
@@ -40,7 +45,7 @@ public class DriveTrain extends Subsystem{
 		rightEncoder = new Encoder(RobotMap.rightEncoderA, RobotMap.rightEncoderB);
 		gyro = new ADXRS450_Gyro(RobotMap.gyro);
 		
-		table = NetworkTable.getTable("Dashboard");
+		table = NetworkTable.getTable("SmartDashboard");
 		
 		
 		LiveWindow.addActuator("Drive Train", "Front_Left Motor", (Talon) frontLeft);
@@ -99,11 +104,16 @@ public class DriveTrain extends Subsystem{
 		rightEncoder.reset();
 	}
 	
+	public void setOI(OI oi){
+		this.oi = oi;
+	}
+	
 
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-		
+		setDefaultCommand(new DriveWithXBox(oi));
 	}
+	
 
 }

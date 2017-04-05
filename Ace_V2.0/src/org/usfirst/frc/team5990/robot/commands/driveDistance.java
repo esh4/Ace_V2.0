@@ -16,26 +16,33 @@ public class driveDistance extends Command{
 	double distance;
 	double power;
 	
+	double setpoint;
+	double kP;
+	double error;
+	double correction;
+	
 	public driveDistance(double distance, double power){
 		this.distance = distance;
 		this.power = power;
-		gyroPIDOut = new DummyPIDOutput();
-		gyroPIDSource = new DummyPIDSource();
+		this.kP = 0.2;
+		//gyroPIDOut = new DummyPIDOutput();
+		//gyroPIDSource = new DummyPIDSource();
 		
 		requires(Robot.driveTrain);
-		headingControl = new PIDController(0.5, 0, 0, gyroPIDSource, gyroPIDOut);
+		//headingControl = new PIDController(0.5, 0, 0, gyroPIDSource, gyroPIDOut);
 	}
 	
 	@Override
 	protected void initialize() {
 		Robot.driveTrain.resetEncoders();
-		headingControl.setSetpoint(Robot.driveTrain.getHeading());
+		this.setpoint = Robot.driveTrain.getHeading();
 	}
 	
 	@Override
 	protected void execute() {
-		gyroPIDSource.setValue(Robot.driveTrain.getHeading());
-		Robot.driveTrain.drive(this.power + gyroPIDOut.getOutput(), this.power - gyroPIDOut.getOutput());
+		this.error = this.setpoint - Robot.driveTrain.getHeading();
+		this.correction = this.error * this.kP;
+		Robot.driveTrain.drive(this.power + this.correction, this.power - this.correction);
 		Robot.driveTrain.log();
 	}
 

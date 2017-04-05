@@ -17,10 +17,10 @@ public class RobotMap {
 	public static int rearRightMotor = 4;
 	
 	//Sensor ports:
-	public static int leftEncoderA = 1;
-	public static int leftEncoderB = 2;
-	public static int rightEncoderA = 3;
-	public static int rightEncoderB = 4;
+	public static int leftEncoderA = 0;
+	public static int leftEncoderB = 1;
+	public static int rightEncoderA = 2;
+	public static int rightEncoderB = 3;
 	public static SPI.Port gyro = SPI.Port.kOnboardCS0; 
 	
 	//Climber Subsystem:
@@ -28,11 +28,11 @@ public class RobotMap {
 	public static int climbMotor2 = 7;
 	
 	//StrongArm Subsystem:
-	public static int gearLiftSolenoidA = 0;
-	public static int gearLiftSolenoidB = 1;
-	public static int gearClampSolenoidA = 2;
-	public static int gearClampSolenoidB = 3;
-	public static int gearEjectSolenoidA = 4;
-	public static int gearEjectSolenoidB = 5;
+	public static int gearLiftSolenoidA = 3;
+	public static int gearLiftSolenoidB = 2;
+	public static int gearClampSolenoidA = 4;
+	public static int gearClampSolenoidB = 5;
+	public static int gearEjectSolenoidA = 0;
+	public static int gearEjectSolenoidB = 1;
 	
 }

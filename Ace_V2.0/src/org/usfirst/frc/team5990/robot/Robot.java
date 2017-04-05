@@ -4,10 +4,13 @@ package org.usfirst.frc.team5990.robot;
 import org.usfirst.frc.team5990.robot.subsystems.Climber;
 import org.usfirst.frc.team5990.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team5990.robot.subsystems.StrongArm;
+import org.usfirst.frc.team5990.robot.commands.AnnoyEshel;
+import org.usfirst.frc.team5990.robot.commands.ReadyToGrab;
 import org.usfirst.frc.team5990.robot.commands.driveDistance;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -43,16 +46,21 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		
 		driveTrain = new DriveTrain();
-		oi = new OI();
+		strongArm = new StrongArm();
+		
 		//driveTrain.gyroCalibrate();
 		climber = new Climber();
-		strongArm = new StrongArm();
+		oi = new OI();
+		driveTrain.setOI(oi);
 		//compressor.start();
 		//chooser.addDefault("Default Auto", new ExampleCommand());
 		//chooser.addObject("My Auto", new MyAutoCommand());
 		//SmartDashboard.putData("Auto mode", chooser);
+
 	}
+	
 
 	/**
 	 * This function is called once each time the robot enters Disabled mode.
@@ -113,8 +121,13 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		driveTrain.arcadeDrive(oi.driveStick.getY(), oi.driveStick.getX());
+		//driveTrain.arcadeDrive(oi.driveStick.getY(), oi.driveStick.getX());
 		driveTrain.log();
+		
+		SmartDashboard.putBoolean("A pressed", new JoystickButton(oi.driveStick, 1).get());
+		SmartDashboard.putBoolean("B pressed", new JoystickButton(oi.driveStick, 2).get());
+		
+		climber.setPower(Math.abs(oi.operatorStick.getY()));
 	}
 
 	@Override
