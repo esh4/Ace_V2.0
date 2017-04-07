@@ -1,0 +1,16 @@
+package org.usfirst.frc.team5990.robot.commands;
+
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Subsystem;
+
+public class driveDistance extends Command{
+	public driveDistance(){
+		requires();
+	}
+
+	@Override
+	protected boolean isFinished() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+}

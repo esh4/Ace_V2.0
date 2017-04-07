@@ -1,0 +1,5 @@
+package org.usfirst.frc.team5990.robot.assists;
+
+public class DummyPIDOutput {
+
+}

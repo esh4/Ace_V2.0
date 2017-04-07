@@ -1,0 +1,30 @@
+package org.usfirst.frc.team5990.robot.assists;
+
+package org.usfirst.frc.team5990.robot.assists;
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+//import edu.wpi.first.wpilibj.PIDOutput;
+import edu.wpi.first.wpilibj.PIDSource;
+
+
+public class DummyPIDSource implements PIDSource{
+    double source;
+    
+    public DummyPIDSource()
+    {
+        source = 0;
+    }
+
+    public void setValue(double value) {
+        this.source = value;
+    }
+
+    public double pidGet() {
+        return source;
+    }
+    
+}

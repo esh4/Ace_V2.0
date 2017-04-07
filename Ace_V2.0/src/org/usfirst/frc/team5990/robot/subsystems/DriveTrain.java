@@ -1,6 +1,8 @@
 package org.usfirst.frc.team5990.robot.subsystems;
 
+import org.usfirst.frc.team5990.robot.OI;
 import org.usfirst.frc.team5990.robot.RobotMap;
+import org.usfirst.frc.team5990.robot.commands.DriveWithXBox;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.Encoder;
@@ -27,21 +29,25 @@ public class DriveTrain extends Subsystem{
 	
 	private NetworkTable table;
 	
+	private OI oi;
+	
 	public DriveTrain() {
+		//this.oi = oi;
 		frontRight = new Talon(RobotMap.frontRightMotor);
 		rearRight = new  Talon(RobotMap.rearRightMotor);
 		frontLeft = new Talon(RobotMap.frontLeftMotor);
 		rearLeft = new Talon(RobotMap.rearLeftMotor);
 		
 		drive = new RobotDrive(frontLeft, rearLeft, frontRight, rearRight);
+		drive.setSafetyEnabled(false);
 		
 		leftEncoder = new Encoder(RobotMap.leftEncoderA, RobotMap.leftEncoderB);
 		rightEncoder = new Encoder(RobotMap.rightEncoderA, RobotMap.rightEncoderB);
 		gyro = new ADXRS450_Gyro(RobotMap.gyro);
 		
-		table = NetworkTable.getTable("Dashboard");
+		table = NetworkTable.getTable("SmartDashboard");
 		
-		/*
+		
 		LiveWindow.addActuator("Drive Train", "Front_Left Motor", (Talon) frontLeft);
 		LiveWindow.addActuator("Drive Train", "Back Left Motor", (Talon) rearLeft);
 		LiveWindow.addActuator("Drive Train", "Front Right Motor", (Talon) frontRight);
@@ -49,7 +55,7 @@ public class DriveTrain extends Subsystem{
 		LiveWindow.addSensor("Drive Train", "Left Encoder", leftEncoder);
 		LiveWindow.addSensor("Drive Train", "Right Encoder", rightEncoder);
 		LiveWindow.addSensor("Drive Train", "Gyro", gyro);		
-		*/
+		
 	}
 	
 	//send useful info to DB:
@@ -57,30 +63,57 @@ public class DriveTrain extends Subsystem{
 		table.putNumber("leftEncoder", leftEncoder.getDistance());
 		table.putNumber("rightEncoder", rightEncoder.getDistance());
 		table.putNumber("gyro angle", this.getHeading());
+		
+		table.putNumber("front right motor", frontRight.get());
+		table.putNumber("rear right motor", rearRight.get());
+		table.putNumber("front left motor", frontLeft.get());
+		table.putNumber("rear left motor", rearLeft.get());
 	}
 	
 	public void drive(double left, double right) {
 		drive.tankDrive(left, right);
 	}
 	
-	public void drive(Joystick joystick) {
+	public void arcadeDrive(Joystick joystick) {
 		drive.arcadeDrive(joystick.getY(), joystick.getX());
 	}
 	
+	public void arcadeDrive(double yVal, double xVal){
+		drive.arcadeDrive(-yVal, -xVal);
+	}
+	
+	
 	public double getHeading() {
 		return gyro.getAngle();
+	}
+	
+	public void gyroCalibrate(){
+		gyro.calibrate();
+	}
+	
+	public void resetGyro(){
+		gyro.reset();
 	}
 	
 	public double getDistance() {
 		return (leftEncoder.getDistance() + rightEncoder.getDistance()) / 2;
 	}
 	
+	public void resetEncoders() {
+		leftEncoder.reset();
+		rightEncoder.reset();
+	}
 	
+	public void setOI(OI oi){
+		this.oi = oi;
+	}
 	
+
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-		
+		setDefaultCommand(new DriveWithXBox(oi));
 	}
+	
 
 }
